@@ -19,7 +19,7 @@ components:
     attributes:
       deployment/replicas: 1
       deployment/cpuRequest: 50m
-      deployment/memoryRequest: 128Mi
+      deployment/memoryRequest: 256M
       deployment/container-port: 8080
     kubernetes:
       uri: deploy.yaml
