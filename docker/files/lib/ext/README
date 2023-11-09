@@ -1,0 +1,3 @@
+README
+------
+Place jar files in this lib/ext directory for them to be included in the ords classpath at runtime.

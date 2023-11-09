@@ -1,0 +1,63 @@
+.\"    Title: ords.service
+.\"    Date: 05/07/2019
+.\"    Source: ords 
+.\"    ords.service(8) -- Oracle REST Data Services systemd Service
+.\" ######################################################################################################
+.TH ords.service 8 "FEB 2022" "1.0" "System Administration tools and Daemons"
+
+.\" ######################################################################################################
+.SH NAME
+.B ORDS
+\- Oracle REST Data Services standalone server manager
+.br
+.B ords.service \fR- Controls the service status of Oracle REST Data Services
+
+.\" ######################################################################################################
+.SH SYNOPSIS
+.B systemctl enable ords.service
+
+.\" ######################################################################################################
+.SH DESCRIPTION
+.PP
+.B ORDS
+manages the status of the Oracle REST Data Services standalone server.
+.PP
+This program also uses the 
+.B ords.conf 
+(See 
+.B ords.conf(5)\fR) file located within
+.B /etc/ords.conf
+to configure, other things, <ORDS_BASE>, <ORDS_CONFIG>, and <SERVE_EXTRA_ARGS>. 
+.br
+
+
+The
+.B ords.service
+file is used to configure the 
+.B ORDS
+as a service on systemd. These configurations take the dependencies of the network service to start 
+.B ORDS 
+service after network and remote file system services.
+
+.\" ######################################################################################################
+.SH FILES
+The following files are used by this program:
+.\" @@@
+.TP
+.B - /etc/init.d/ords
+It's the file with which the server is started.
+\" @@@
+.TP
+.B - /etc/ords.conf
+It's the file with the <ORDS_BASE> and <ORDS_CONFIG> varibales nedeed to run ORDS services.
+\" @@@
+.TP
+.B - /etc/systemd/system/ords.service
+It's the file that controls the service status of Oracle REST Data Services.
+.RE
+
+.\" ######################################################################################################
+.SH "SEE ALSO"
+.PP
+.B ords\fR(1), \fBords.config\fR(5).
+

@@ -1,0 +1,64 @@
+.\"    Title: ords.config
+.\"    Date: 05/07/2019
+.\"    Source: ords
+.\" ######################################################################################################
+.TH ORDS.CONF 5 "FEB 2022" "1.0" "Config file for Oracle REST Data Services standalone server manager"
+
+.\" ######################################################################################################
+.SH NAME
+.B ords.conf \fR\- Config file for Oracle REST Data Services standalone server manager.
+
+.\" ######################################################################################################
+.SH DESCRIPTION
+.PP
+.B ords.conf
+contains the configuration properties for the Oracle REST Data Services standalone server manager. The configuration properties will set the environment variables for the ORDS standalone server manager.
+.br
+
+.\" ######################################################################################################
+.SH PROPERTIES
+.\" @@@
+.TP
+.B ORDS_BASE
+.RS 2
+The absolute path to ORDS install directory. If you have installed ORDS by RPM package this value will be taken from RPM package manager if you have installed ORDS unprepossessing an ORDS zip file you need to set this value manually
+.RE
+.\" @@@
+.TP
+.B ORDS_CONFIG
+.RS 2
+The absolute path to ORDS configuration directory.
+.B ORDS_CONFIG is auto configured
+.B /etc/ords/config. 
+
+.RE
+.\" @@@
+.TP
+.B SERVE_EXTRA_ARGS
+.RS 2
+Option to add extra arguments and pass it to serve command in the init service
+
+
+.RE
+.\" @@@
+.TP
+.B APP_VM_OPTS
+.RS 2
+Java Virtual Machine Options
+
+.\" ######################################################################################################
+.SH FILES
+The following files are used by this program:
+.\" @@@
+.TP
+.B - <ORDS_BASE>/ords/bin/ords
+It's the file with which the server is started.
+\" @@@
+.TP
+.B - /etc/ords.conf
+It's the server's startup configuration used. It contains among other things, the configuration directory used to start the server.
+
+.\" ######################################################################################################
+.SH SEE ALSO
+.PP
+.B ords\fR(1), \fBords.service\fR(8).

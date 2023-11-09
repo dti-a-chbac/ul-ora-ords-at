@@ -1,0 +1,44 @@
+schemaVersion: 2.2.0
+metadata:
+  name: ords
+  projectType:  ords
+  displayName: ords
+  version: 1.0.1
+  provider: Red Hat
+  attributes:
+    alpha.dockerimage-port: 8080
+components:
+  - name: image-build
+    image:
+      imageName: ords:latest
+      dockerfile:
+        uri: docker/Dockerfile
+        buildContext: .
+        rootRequired: false
+  - name: kubernetes-deploy
+    attributes:
+      deployment/replicas: 1
+      deployment/cpuRequest: 10m
+      deployment/memoryRequest: 50Mi
+      deployment/container-port: 8080
+    kubernetes:
+      uri: deploy.yaml
+      endpoints:
+      - name: http-8080
+        targetPort: 8080
+        path: /
+commands:
+  - id: build-image
+    apply:
+      component: image-build
+  - id: deployk8s
+    apply:
+      component: kubernetes-deploy
+  - id: deploy
+    composite:
+      commands:
+        - build-image
+        - deployk8s
+      group:
+        kind: deploy
+        isDefault: true

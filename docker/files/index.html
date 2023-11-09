@@ -1,0 +1,1137 @@
+<html>
+
+<head>
+	<link href="data:image/x-icon;base64,AAABAAEAICAQAAEABADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAOkAAAH1AAIA+wAAAP8AIiTyAERH9gBfYfgAdnr5AImM9gCio/sAurv8ANjZ/QDn6f8A8vH/APv9/wAAAAAA///////////////////////////////yP/////////////////8zMQEz//////////////8yIREAADP///////////8yIRERAAAAI/////////8zIRF67u2nAAAT////////MSFO7u3u7uQAA////////zETnu2pmu7YAAP///////8xMqh5zuuYiAAD////////MRFe7u3u7uUAAP//////8zExne6pqu7YQAE///////MRE6h5vtuYiAAAP//////zMzJe7u3u3uUAAD//////8xETre6qm+7YAAA///////MREah5vMuImAAAP//////zEzNe7u7u7sUAAD//////8RMRne7e7u7oAAA///////MxIRnu7t7ugAAAD/////8zESERFGd2QAAAAAP/////MTERIbMXUEoAAAAD/////zEhMU3lCmB9xAAAA/////8xEhIeWDuAl7AAAAP/////MRMxxBMbgABrAAAD/////zEUZxERHZAAAIZAAf////8hExERFs7eQAAAAAH////zMzERMxKu5wAAAAABP///8yERIxERHsAAAAAAAT////MzIREyIxYAAAAAABE/////8zMzIRERAAAAETM/////////8zMzIgASMz//////////////8zMzP/////////////////////////////////////5////wD///wAP//wAA//wAAD/8AAA//AAAP/wAAD/8AAA/+AAAH/gAAB/4AAAf+AAAH/gAAB/4AAAf+AAAH/gAAB/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP4AAAB+AAAAfgAAAH+AAAH/+AAf//+B///////w=="
+	 rel="icon" type="image/x-icon" />
+	<title>Oracle REST Data Services (22.1.1.r1331148) Release Notes
+	</title>
+	<style type="text/css" media="screen">
+		h2,
+		ul {
+			margin-bottom: 8.5px
+		}
+
+		p,
+		pre {
+			margin: 0 0 8.5px
+		}
+
+		body,
+		pre {
+			line-height: 1.42857143;
+			color: #333
+		}
+
+		body {
+			margin: 0;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 12px;
+			background-color: #fff
+		}
+
+		header {
+			display: block
+		}
+
+		a:active,
+		a:hover {
+			outline: 0
+		}
+
+		img {
+			border: 0;
+			vertical-align: middle
+		}
+
+		@media print {
+			img,
+			pre {
+				page-break-inside: avoid
+			}
+			* {
+				color: #000 !important;
+				text-shadow: none !important;
+				background: 0 0 !important;
+				-webkit-box-shadow: none !important;
+				box-shadow: none !important
+			}
+			a,
+			a:visited {
+				text-decoration: underline
+			}
+			a[href]:after {
+				content: " (" attr(href) ")"
+			}
+			pre {
+				border: 1px solid #999
+			}
+			img {
+				max-width: 100% !important
+			}
+			h2,
+			p {
+				orphans: 3;
+				widows: 3
+			}
+			h2 {
+				page-break-after: avoid
+			}
+			.navbar {
+				display: none
+			}
+		}
+
+		.navbar-brand:focus,
+		.navbar-brand:hover,
+		a {
+			text-decoration: none
+		}
+
+		*,
+		:after,
+		:before {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box
+		}
+
+		a {
+			background: 0 0;
+			color: #428bca
+		}
+
+		a:focus,
+		a:hover {
+			color: #2a6496;
+			text-decoration: underline
+		}
+
+		a:focus {
+			outline: dotted thin;
+			outline: -webkit-focus-ring-color auto 5px;
+			outline-offset: -2px
+		}
+
+		h2 {
+			font-family: inherit;
+			font-weight: 500;
+			line-height: 1.1;
+			color: inherit;
+			margin-top: 17px;
+			font-size: 25px
+		}
+
+		ul {
+			margin-top: 0
+		}
+
+		pre {
+			overflow: auto;
+			font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+			display: block;
+			padding: 8px;
+			font-size: 11px;
+			word-break: break-all;
+			word-wrap: break-word;
+			background-color: #f5f5f5;
+			border: 1px solid #ccc;
+			border-radius: 4px
+		}
+
+		.container {
+			padding-right: 15px;
+			padding-left: 15px;
+			margin-right: auto;
+			margin-left: auto
+		}
+
+		@media (min-width :768px) {
+			.container {
+				width: 750px
+			}
+		}
+
+		@media (min-width :992px) {
+			.container {
+				width: 970px
+			}
+		}
+
+		@media (min-width :1200px) {
+			.container {
+				width: 1170px
+			}
+		}
+
+		.navbar {
+			position: relative;
+			min-height: 50px;
+			margin-bottom: 17px;
+			border: 1px solid transparent
+		}
+
+		.container>.navbar-header {
+			margin-right: -15px;
+			margin-left: -15px
+		}
+
+		.navbar-static-top {
+			z-index: 1000;
+			border-width: 0 0 1px
+		}
+
+		.navbar-brand {
+			float: left;
+			height: 50px;
+			padding: 16.5px 15px;
+			font-size: 15px;
+			line-height: 17px
+		}
+
+		@media (min-width :768px) {
+			.navbar {
+				border-radius: 4px
+			}
+			.navbar-header {
+				float: left
+			}
+			.container>.navbar-header {
+				margin-right: 0;
+				margin-left: 0
+			}
+			.navbar-static-top {
+				border-radius: 0
+			}
+			.navbar>.container .navbar-brand {
+				margin-left: -15px
+			}
+		}
+
+		.navbar-default {
+			background-color: #f0f0f0;
+			border-color: #dfdfdf
+		}
+
+		.navbar-default .navbar-brand {
+			color: #707070
+		}
+
+		.navbar-default .navbar-brand:focus,
+		.navbar-default .navbar-brand:hover {
+			color: #222;
+			background-color: transparent
+		}
+
+		.container:after,
+		.container:before,
+		.navbar-header:after,
+		.navbar-header:before,
+		.navbar:after,
+		.navbar:before {
+			display: table;
+			content: " "
+		}
+
+		.container:after,
+		.navbar-header:after,
+		.navbar:after {
+			clear: both
+		}
+	</style>
+</head>
+
+<body>
+
+	<header class="navbar navbar-default navbar-static-top" id="top" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" style="padding: 5.5px 15px;" href="https://oracle.com/rest"
+				 target="_blank">
+					<img style="height: 40px; margin-right: 5px;" src="data:image/png;base64,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"
+					/>ORACLE REST DATA SERVICES
+				</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<header>
+			<h1>Oracle REST Data Services 22.1.1.r1331148</h1>
+			<h2>Release Notes</h2>
+			<p>
+				<strong>Date: May 2022</strong>
+			</p>
+		</header>
+		<h3>
+			<a href="https://oracle.com/rest" target="_blank">Oracle REST Data Services on oracle.com</a>
+		</h3>
+		<a id="support"></a>
+		<h2>Support</h2>
+		<ul>
+			<li>You are supported by Oracle Support under your current Oracle Database Support license for Oracle REST Data Services
+				<em>production releases
+				</em>.
+			</li>
+			<li>
+				<p>
+					Log Oracle REST Data Services bugs and issues using
+					<a href="https://support.oracle.com">My Oracle Support</a>.
+				</p>
+				<ul>
+					<li>For problems specific to SODA for REST, file a service request using
+						<em>"Oracle XML Developers Kit"</em> as the product.
+					</li>
+					<li>For
+						<em>all</em> other problems, use
+						<em>"Oracle REST Data Services"</em> as the product.
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<h3>Note - Autonomous Database Shared Subscribers</h3>
+		<p>If you are running a customer-managed ORDS for your Autonomous Transaction Processing, Autonomous Data Warehouse, or Autonomous JSON Database, you must upgrade your customer-managed ORDS to the version used in your Autonomous Database Shared environment. Failure to do so could lead to service disruptions.</p>
+		<p>To determine the version of ORDS in your Autonomous Database Shared database run this query:</p>
+		<pre>select ords.installed_version from dual;</pre>
+
+		<a id="Documentation"></a>
+		<h2>Documentation</h2>
+		<h3>General</h3>
+		<ul>
+			<li>Documentation for this release is provided on the oracle.com web site. Click
+				<a href="https://oracle.com/rest">here</a>
+				to view the documentation and related information.
+			</li>
+			<li>Documentation on using SODA for REST is provided on the oracle.com web site. Click
+				<a href="https://oracle.com/rest">here</a>, navigate to the documentation section and access the book titled 'SODA for REST'.
+			</li>
+		</ul>
+		<h3>Getting Started</h3>
+		<ul>
+			<li>A tutorial on getting started with developing RESTful Services is included in the
+				<a href="https://oracle.com/rest">ORDS
+				</a>product documentation, in the book titled 'Oracle® REST Data Services Quick Start Guide'.
+			</li>
+		</ul>
+		<a id="feedback"></a>
+		<h2>Feedback</h2>
+		<ul>
+			<li>At <a href="https://oracle.com/rest">Oracle REST Data Services on oracle.com</a> you will find links to forums and social media channels where you can discuss topics with the ORDS community around the world and leave feedback for the development team.
+				<ul>
+					<li>In the forums, be sure to use clear subject lines to initiate a thread. Provide a complete and clear description of the issue, including
+						steps to reproduce the issue.</li>
+					<li>Try to avoid using old, unrelated threads for a new issue.</li>
+				</ul>
+			</li>
+		</ul>
+		<h2>Important Concepts to Keep In Mind</h2>
+		<h3>Revised Command Line Interface and Configuration Directory Structure</h3>
+        <h4>Command Line Interface</h4>
+        <p>
+        The java commands serviced from the WAR file are no longer supported. Attempting to run the following:
+         <pre>java -jar ords.war standalone</pre>
+        Will result in an error message, referring you to the docs. Instead you would run:
+        <pre>ords --config /path/to/config serve</pre>
+        </p>
+
+        <h4>Installation & Configuration</h4>
+        <p>
+        The ORDS program or script in the bin directory can be used to perform installs, changes to your configuration, changing the database passwords for your connection pools, and for creating ORDS users. To see a list of commands:
+        <pre>ords --help</pre>
+        </p>
+
+        <h4>Configuration Files Directory Layout</h4>
+        <p>
+        If upgrading from a previous version of ORDS, your existing configuration directory for ORDS and the files contained therein will be migrated to a new layout for versions 22.1 and higher.<br><br>
+        You may migrate your settings using the ORDS migrate command, or you may perform a 22.1 install which will prompt ORDS to migrate your existing ORDS configuration to the new mapping for you.<br><br>
+        ORDS standalone and default pool configuration settings are in a settings.xml file in a global subdirectory.<br><br>
+        Connection pools are in a databases subdirectory. The intital database pool is named 'default' and has a '/' mapping pattern.<br><br>
+        Subsequent pools will created such that the name of the pool also defines the mapping pattern.<br><br>
+        </p>
+
+		<h3>Migration of Oracle APEX Restful Service Modules</h3>
+		<p>
+			Oracle APEX 22.1 and onwards no longer natively supports the serving of APEX
+			Based Restful Service Modules. Existing APEX Based Restful Service Modules must
+			be migrated to ORDS Resource Modules in order to avoid loss of service.
+		</p>
+		<p>
+			As migration will replace any previously migrated (and possibly further developed)
+			APEX Based Restful Service Modules from an APEX Workspace, it is the responsibility
+			of the customer to manually initiate the migration. To help with this, Oracle has
+			provided a number of SQL scripts that can be found in the "migrate" folder in the
+			top-level "scripts" folder of the ORDS distribution ZIP file. These scripts must be
+			run as either a DBA or an ORDS "Installation" user.
+			<ul>
+				<li><strong>ords_migrate_report.sql</strong> - Reports on the migration status of all APEX
+					Workspaces that have one or more APEX Based Restful Service Modules
+					(excluding oracle.example.hr). e.g.
+					<pre>@ords_migrate_report.sql<br/>
+APEX SCHEMA                                      APEX VERSION    APEX STATUS
+------------------------------------------------ --------------- ---------------
+APEX_210200                                      21.2.0          VALID
+
+WORKSPACE NAME                                                  MIGRATED MODULES
+--------------------------------------------------------------- -------- -------
+APEX_WS_2                                                       NO             6
+APEX_WS_1                                                       YES            1
+					</pre>
+				</li>
+				<li><strong>ords_manual_migrate_workspace.sql</strong> - Manually migrates a single APEX Workspace e.g.
+					<pre>@ords_manual_migrate_workspace.sql ~/logs/ APEX_WS_2</pre>
+				</li>
+				<li><strong>ords_manual_migrate.sql</strong> - Manually migrates all APEX Workspaces e.g.
+					<pre>@ords_manual_migrate.sql ~/logs/</pre>
+				</li>
+			</ul>
+		</p>
+		<h3>SQL Developer Web</h3>
+		<p>
+		   SQL Developer Web (SDW) is an ORDS hosted web application giving Oracle Database users the SQL Developer desktop experience in their browser.
+        </p>
+        <p>
+            SQL Developer Web provides a development interface for building and maintaining your ORDS based REST APIs, AUTOREST Enabled database objects, OAuth2 Clients, ORDS Privileges and Roles, as well as a SODA for REST graphical interface.
+
+            For the best possible experience developer REST APIs for ORDS, we reccommend you use SQL Developer Web.
+        </p>
+		<p>
+		   For consistent representation of date values in SQL Developer Web, ORDS should be run in the UTC timezone. This is set automatically when using the <pre>ords</pre> command line interface. When deploying ORDS to Apache Tomcat or WebLogic Server the user.timezone may have to be set explicitly before starting the container.
+
+             <pre>-Duser.timezone=UTC</pre>
+
+		</p>
+		<p>
+       SQL Developer Web requires the Database API be enabled.
+		</p>
+		<p>
+       SQL Developer Web's DBMS_SCHEDULER interface requires database version 12.2 or higher.
+		</p>
+
+		<h3>Metadata Catalog</h3>
+		<p>
+		   The default output for openapi-catalog is Swagger V2. In a future release the default output will be OpenAPI V3.
+		</p>
+
+		<h3>Upgrading ORDS in the database</h3>
+		<p>
+           If you have previously executed script, ords_installer_privileges.sql, to grant your administrator user privileges to perform the install or upgrade,
+           then you must execute the script again on that same user that you provided because additional grants have been added to this script.
+           Note:  This script does not apply to the SYS user account.
+		</p>
+
+		<h3>Supported Java Version</h3>
+		<p>
+			Oracle REST Data Services requires Java 11 or 17. Java 8 is no longer supported. Please consult the documentation for the
+			minimum supported Application Server versions for ORDS.
+		</p>
+
+		<h2>Changes in 22.1.1</h2>
+ 		The following changes have been made since 22.1.0:
+ 		<a id="22.1.1-changes"></a>
+ 		<h3>Issues Fixed in 22.1.1</h3>
+ 		<ul>
+ 			<li>Bug:31078322 - ORDS: Client closing socket can result in HTTP 500 error</li>
+ 			<li>Bug:34070049 - ORDS: Prevent use of / in paths file</li>
+			<li>Bug:34092368 - ORDS: OutOfMemoryError can occur when starting in standalone mode</li>
+ 			<li>Bug:34062151 - Database Actions: Not possible to set timezone for start date and end date of job</li>
+ 		</ul>
+		<h3>New Features in 22.1.1</h3>
+		<ul>
+			<li>Bug:34156033 - ORDS: Uptake Jetty 9.4.46.V20220331</li>
+		</ul>
+
+		<h2>Changes in 22.1.0</h2>
+		The following changes have been made since 21.4.3:
+		<a id="22.1.0-changes"></a>
+		<h3>Issues Fixed in 22.1.0</h3>
+		<ul>
+			<li>Bug:31584096 - ORDS: Swagger V2 payload definition is incorrect for POST handler</li>
+			<li>Bug:31797961 - ORDS: Invalid timestamp value in AutoREST PUT parameter causes HTTP 500 Internal Server Error</li>
+			<li>Bug:33014274 - ORDS: Using boolean parameter out on AutoREST PL/SQL causes HTTP 500 Internal Server Error</li>
+			<li>Bug:33111572 - ORDS: Traditional Chinese not represented correctly</li>
+			<li>Bug:33812677 - Database Actions: Roles are mandatory when creating an OAuth2 client</li>
+			<li>Bug:33812695 - Database Actions: Roles created by SYS not listed when creating an OAuth2 client</li>
+			<li>Bug:33542000 - Database Actions: Explain Plan is caching previous executions</li>
+			<li>Bug:33610732 - Database Actions: Table properties unique keys text cropped</li>
+			<li>Bug:33631559 - Database Actions: Wrong color for string quote</li>
+			<li>Bug:33669845 - Database Actions: Missing labels on Charts page</li>
+			<li>Bug:33680494 - Database Actions: The unexpected token symbol shown when a token is followed by a quoted string</li>
+			<li>Bug:33816710 - Database Actions: OpenAPI documentation fails with parser error - duplicated mapping key</li>
+		</ul>
+		<h3>New Features in 22.1.0</h3>
+		<ul>
+			<li>Bug:30717389 - ORDS: Swagger V2 and OpenAPI V3 representation of Metadata Catalog to include authentication information</li>
+			<li>Bug:31391518 - ORDS: Revised Command Line Interface and Configuration Directory structure</li>
+			<li>Bug:33416453 - ORDS: Make Java 11 the minimum Java Runtime Environment version</li>
+			<li>Bug:33744175 - ORDS: Uptake Oracle Jet 11.1.6</li>
+			<li>Bug:33947345 - ORDS: Use REST Enabled SQL Service with MySQL database</li>
+			<li>Bug:34002527 - ORDS: Rotate a client secret
+			<li>Bug:33784519 - ADP: Support renaming and deleting an ingest job</li>
+			<li>Bug:33841574 - ADP: Running data ingest jobs are listed with job name</li>
+			<li>Bug:31018220 - Database Actions: Use offline help when online help not available</li>
+			<li>Bug:33417651 - Database Actions: User friendly global search</li>
+			<li>Bug:33532066 - Database Actions: Generate CURL snippets for Windows</li>
+			<li>Bug:33631074 - Database Actions: Improve performance of standalone Charts view</li>
+			<li>Bug:33655971 - Database Actions: Disable refresh for Charts</li>
+			<li>Bug:33817138 - Database Actions: File system access in SQL Worksheet</li>
+			<li>Bug:33850965 - Database Actions: Import REST Module from swagger definition</li>
+			<li>Bug:33867119 - Database Actions: Enhanced support for PL/SQL object editing</li>
+			<li>Bug:33886602 - Database Actions: Uptake performance hub plugin 1.0.0-20220219112340-MASTER</li>
+			<li>Bug:33952777 - Database Actions: Create PL/SQL object from scratch</li>
+			<li>Bug:33792443 - Database Actions: Add support for full screen in SQL Worksheet</li>
+		</ul>
+
+		<h2>Changes in 21.4.3</h2>
+		 The following changes have been made since 21.4.2:
+		 <a id="21.4.3-changes"></a>
+		 <h3>Issues Fixed in 21.4.3</h3>
+		 <ul>
+			 <li>Bug:34020594 - ORDS: Uptake Jackson 2.13.2 and Jackson Databind 2.13.2.2</li>
+			 <li>Bug:33837693 - ORDS: A second call to the same rest enabled procedure with date in parameter fails with unable to marshall date</li>
+		 </ul>
+
+		<h2>Changes in 21.4.2</h2>
+		The following changes have been made since 21.4.1:
+		<a id="21.4.2-changes"></a>
+		<h3>Issues Fixed in 21.4.2</h3>
+		<ul>
+			<li>Bug:33502385 - ORDS: PL/SQL Gateway not accepting parameter names with special characters</li>
+		</ul>
+		<h3>New Features in 21.4.2</h3>
+		<ul>
+			<li>Bug:33839193 - ORDS: Uptake SODA 1.1.10</li>
+			<li>Bug:33871448 - ORDS: Uptake Rappid 3.4.1</li>
+			<li>Bug:33915916 - ORDS: Jersey repackaged with Jackson 2.13.1</li>
+			<li>Bug:32386554 - ORDS: Provide new scripts to report on non-migrated workspaces and to individually migrate them</li>
+			<li>Bug:33488849 - ORDS: Check that ORDS can dispatch both /ords/r/... and /ords/{schema}/r/...</li>
+		</ul>
+
+		<h2>Changes in 21.4.1</h2>
+		The following changes have been made since 21.4.0:
+		<a id="21.4.1-changes"></a>
+		<h3>Issues Fixed in 21.4.1</h3>
+		<ul>
+			<li>Bug:33684760 - ORDS: OAuth token empty response in Database Actions</li>
+			<li>Bug:33727577 - ORDS: PDB mapping not working. 404 + SQLException: ORA-01005 </li>
+			<li>Bug:33739947 - ORDS: Error trying to export a module with a handler's source bigger than 32kb </li>
+			<li>Bug:33583853 - ORDS: Error using Windows path to TNS folder</li>
+		</ul>
+		<h2>Changes in 21.4.0</h2>
+		The following changes have been made since 21.3.2:
+		<a id="21.4.0-changes"></a>
+		<h3>Issues Fixed in 21.4.0</h3>
+		<ul>
+			<li>BUG:33138576 - Database Actions: Table properties dialog window cannot scrolldown</li>
+			<li>BUG:33599211 - ORDS: Plugin examples not working in Getting Started guide</li>
+		</ul>
+		<h3>New Features in 21.4.0</h3>
+		<ul>
+			<li>BUG:33535164 - ORDS: Uptake Jackson 2.13.0</li>
+			<li>BUG:33535164 - ORDS: Uptake Jetty 9.4.44.v20210927</li>
+			<li>BUG:33535164 - ORDS: Uptake Guava 31.0.1-jre</li>
+			<li>BUG:33580638 - ORDS: Uptake AutoAV 20.1.3.41</li>
+			<li>BUG:33132127 - ORDS: Schema level configuration</li>
+			<li>BUG:33146922 - Database Actions: User Interface to job scheduler</li>
+			<li>BUG:33271364 - Database Actions: APEX workspace management</li>
+			<li>BUG:33651611 - ADP: Data Analysis in data tools</li>
+		</ul>
+
+		<h2>Changes in 21.3.2</h2>
+		The following changes have been made since 21.3.1:
+		<a id="21.3.2-changes"></a>
+		<h3>Issues Fixed in 21.3.2</h3>
+		<ul>
+			<li>BUG:33489973 - Database Actions: Public properties - Empty DIVS to DOM when response is empty</li>
+			<li>BUG:33574935 - Database Actions: REST Workshop: REST called is failed when the module is accessed</li>
+			<li>BUG:33406824 - Database Actions: Chart Tour/ Dashboard Tour is left even after the tour is over</li>
+			<li>BUG:33498260 - ORDS: Update jdbc/ucp cumulative patch jars</li>
+		</ul>
+
+		<h2>Changes in 21.3.1</h2>
+		The following changes have been made since 21.3.0:
+		<a id="21.3.1-changes"></a>
+		<h3>Issues Fixed in 21.3.1</h3>
+		<ul>
+			<li>BUG:33278709 - Database Actions: The output of query results is with commas if the column type is number</li>
+		</ul>
+		<h3>New Features in 21.3.1</h3>
+		<ul>
+			<li>BUG:33323698 - Database Actions: Add auto refresh to report component</li>
+			<li>BUG:33408583 - Database Actions: Add customisable banner to all Sign In, OAuth and Database Actions pages</li>
+			<li>BUG:33449736 - ADP: Update AutoAVGen to 20.3.1.39</li>
+		</ul>
+
+		<h2>Changes in 21.3.0</h2>
+		The following changes have been made since 21.2.4:
+		<a id="21.3.0-changes"></a>
+		<h3>Issues Fixed in 21.3.0</h3>
+		<ul>
+			<li>BUG:33103628 - Database Actions: Vertical scroll missing in chart definition in Firefox</li>
+			<li>BUG:32917191 - ORDS: Instance API OpenAPI V3 document specifies incorrect path</li>
+			<li>BUG:31892227 - ORDS: Swagger V2 representation of metadata catalog returns HTTP 200 for modules without a handler</li>
+		</ul>
+		<h3>New Features in 21.3.0</h3>
+		<ul>
+			<li>BUG:33166641 - ADP: Use cards based statistics histogram</li>
+			<li>BUG:33094472 - Database Actions: Data visualizations dashboard</li>
+			<li>BUG:33136055 - ORDS: Database API Data Pump support for Oracle Cloud Object Storage</li>
+			<li>BUG:32028571 - ORDS: Database API Data Pump available to non administrator database users</li>
+			<li>BUG:32372554 - ORDS: Uptake UCP DRIVER (21.0.0.0-p32464841-p32376643-p33041374-p33199445)</li>
+			<li>BUG:32372554 - ORDS: Uptake JDBC DRIVER (21.0.0.0-p32205381-p33094923)</li>
+			<li>BUG:33297723 - ORDS: Uptake jakarta.json JSON-P 2.0.1 and Eclipse Parsson 1.0.0</li>
+			<li>BUG:33307363 - ORDS: Upgrade to SODA 1.1.8</li>
+		</ul>
+
+                <h2>Changes in 21.2.4</h2>
+                The following changes have been made since 21.2.3:
+                <a id="21.2.4-changes"></a>
+                <h3>Issues Fixed in 21.2.4</h3>
+                <ul>
+                <li>BUG:33238570 - ORDS: Uptake Jetty 9.4.43.V20210629</li>
+                <li>BUG:32983106 - Database Actions: Data load from cloud store folder with subfolders counts folders as loadable items </li>
+                </ul>
+
+
+                </ul>
+
+                <h2>Changes in 21.2.3</h2>
+                The following changes have been made since 21.2.2:
+                <a id="21.2.3-changes"></a>
+                <h3>Issues Fixed in 21.2.3</h3>
+                <ul>
+                <li>BUG:33008285 - ORDS: SQL Export endpoint response Content-Type: application/json regardless of the format of response body</li>
+                <li>BUG:33046417 - ORDS: Before showing the main result of script output button, two elapsed boxes are there</li>
+                </ul>
+
+                <h2>Changes in 21.2.2</h2>
+		The following changes have been made since 21.2.1:
+		<a id="21.2.2-changes"></a>
+		<h3>Issues Fixed in 21.2.2</h3>
+		<ul>
+			<li>BUG:32860938 - ADP: Performance improvement for designer content in Business Model landing page</li>
+			<li>BUG:32860950 - ADP: Performance improvement for deployment state content in Business Model landing page</li>
+			<li>BUG:32997903 - ADP: Performance improvement for Data Insights page</li>
+			<li>BUG:33016115 - ADP: Live feed cloud store schema name is not required</li>
+			<li>BUG:33093313 - ORDS: Colons in simplified JSON syntax is incorrectly interpreted as bind variables</li>
+			<li>BUG:33101999 - ORDS: SQL Developer REST DATA SERVICES Administration view encountered 500 Internal Server Error on connection</li>
+                        <li>BUG:32981951 - ORDS: Uptake UCP DRIVER (21.0.0.0-p32464841-p32376643-p33041374)</li>
+		</ul>
+
+		<h2>Changes in 21.2.1</h2>
+		The following changes have been made since 21.2.0:
+		<a id="21.2.1-changes"></a>
+		<h3>Issues Fixed in 21.2.1</h3>
+		<ul>
+			<li>BUG:32988409 - Database Actions: Use correct username reference syntax for certain Database Actions/ADP services</li>
+		</ul>
+
+		<h2>Changes in 21.2.0</h2>
+		The following changes have been made since 21.1.3:
+		<a id="21.2.0-changes"></a>
+		<h3>Issues Fixed in 21.2.0</h3>
+		<ul>
+			<li>BUG:32817733 - ORDS: Too many parse errors database alert logs for PLSQL_GATEWAY_CONFIG query</li>
+			<li>BUG:32703803 - Database Actions: Data loading to a different schema fails to create error logging table</li>
+			<li>BUG:31843537 - Database Actions: SODA syntax errors</li>
+		</ul>
+		<h3>New Features in 21.2.0</h3>
+		<ul>
+			<li>BUG:32935129 - ORDS: Metadata caching</li>
+			<li>BUG:32826282 - ORDS: Uptake UCP DRIVER (21.0.0.0-P32464841-P32376643)</li>
+			<li>BUG:33003755 - ORDS: Uptake Jetty 9.4.42.V20210604</li>
+			<li>BUG:32216752 - ORDS: Improve REST Enabled SQL performance</li>
+			<li>BUG:32924934 - Database Actions: Third Party Library updates - uptake Swagger UI 3.45.1</li>
+			<li>BUG:32861901 - Database Actions: Data Visualizations - Charts</li>
+		</ul>
+
+		<h2>Changes in 21.1.3</h2>
+		The following changes have been made since 21.1.2:
+		<a id="21.1.3-changes"></a>
+		<h3>Issues Fixed in 21.1.3</h3>
+		<ul>
+			<li>BUG:32935381 - ORDS: Fix performance regression when checking patching status of APEX</li>
+		</ul>
+
+		<h2>Changes in 21.1.2</h2>
+		The following changes have been made since 21.1.1:
+		<a id="21.1.2-changes"></a>
+		<h3>Issues Fixed in 21.1.2</h3>
+		<ul>
+			<li>BUG:32884510 - ORDS: Fix automatic layout resizing in worksheet</li>
+		</ul>
+
+		<h2>Changes in 21.1.1</h2>
+		The following changes have been made since 21.1.0:
+		<a id="21.1.1-changes"></a>
+		<h3>Issues Fixed in 21.1.1</h3>
+		<ul>
+			<li>BUG:32631694 - ORDS: Unable to pass OBJECT TYPE variable when calling custom wrapper</li>
+			<li>BUG:32704322 - APD: In Database Actions "Data Tools" cards are not visible</li>
+
+		</ul>
+		<h3>New Features in 21.1.1</h3>
+		<ul><li>BUG:32794672 - ORDS: Uptake Jetty 9.4.40 </li>
+		</ul>
+		<h2>Changes in 21.1.0</h2>
+		The following changes have been made since 20.4.3:
+		<a id="21.1.0-changes"></a>
+		<h3>Issues Fixed in 21.1.0</h3>
+		<ul>
+			<li>BUG:32498488 - ORDS: Only return one x-frame-options header for APEX static resources</li>
+			<li>BUG:32471387 - ORDS: APEX workspace URL mapping cached even if schema subsequently REST-Enabled</li>
+			<li>BUG:32228741 - ORDS: Improve performance of named bind statement parsing</li>
+			<li>BUG:31614372 - ORDS: Open API JSON has uppercase response object property names</li>
+			<li>BUG:30376686 - ORDS: Error response should be JSON when client sends Accept: appplcation/json header</li>
+			<li>BUG:32112867 - SDW: Result Set out parameter missing from REST Workshop</li>
+		</ul>
+		<h3>New Features in 21.1.0</h3>
+		<ul>
+			<li>BUG:32459808 - ORDS: Add DVSYS and PYQSYS schema packages to the default PL/SQL Gateway exclusion list</li>
+			<li>BUG:32537360 - ORDS: Reject requests with Origin: null header</li>
+			<li>BUG:32474210 - ORDS: Uptake 21.1 UCP patch 32464841</li>
+			<li>BUG:32241814 - ORDS: Support Zip Archive (db.wallet.zip) which has only cwallet.sso</li>
+			<li>BUG:32222145 - ORDS: Support pluggable database service name suffix when Oracle Connect Descriptor is used</li>
+			<li>BUG:30560527 - ORDS: Support ICAP SSL/TLS connection</li>
+			<li>BUG:32430092 - SDW: Third Party Library updates - uptake Dexie 3.0.3</li>
+			<li>BUG:32430092 - SDW: Third Party Library updates - uptake AVSC 5.5.3</li>
+			<li>BUG:32430092 - SDW: Third Party Library updates - uptake Monaco 0.22.1</li>
+			<li>BUG:32483801 - SDW: Add autocomplete functionality to JSON QBE editor and document editor</li>
+			<li>BUG:31902012 - SDW: Support Monaco colorizer in code viewer component</li>
+			<li>BUG:31536036 - SDW: Allow User Management to work without access to ORDS metadata</li>
+		</ul>
+
+        <h2>Changes in 20.4.5</h2>
+		The following changes have been made since 20.4.4:
+		<a id="20.4.5-changes"></a>
+		<h3>Issues Fixed in 20.4.5</h3>
+		<ul>
+			<li>BUG:32625348 - ADB-D: ORDS Landing page fails to load</li>
+		</ul>
+		<h3>New Features in 20.4.5</h3>
+		<ul>
+			<li>BUG:32508470 - ORDS: Uptake guava 30.1</li>
+			<li>BUG:32508470 - ORDS: Uptake jackson 2.12.1</li>
+			<li>BUG:32675228 - ORDS: Uptake jetty 9.4.38</li>
+		</ul>
+		<h2>Changes in 20.4.4</h2>
+		The following changes have been made since 20.4.3:
+		<a id="20.4.4-changes"></a>
+		<h3>Issues Fixed in 20.4.4</h3>
+		<ul>
+			<li>BUG:32539296 - ADP: Create live feed fails on public bucket</li>
+			<li>BUB:32550007 - ADP: Missing scrollbar on the explore navigator</li>
+		</ul>
+		<h3>New Features in 20.4.4</h3>
+		<ul>
+			<li>ENH:32499052 - SDW: Create and edit database user and storage</li>
+        </ul>
+
+		<h2>Changes in 20.4.3</h2>
+		The following changes have been made since 20.4.2:
+		<a id="20.4.3-changes"></a>
+		<h3>Issues Fixed in 20.4.3</h3>
+		<ul>
+			<li>BUG:32440646 - ORDS: Too high CPU resources consumed by ORDS tabular resources metadata query</li>
+			<li>BUG 31405764 - ORDS: Support FIPS wallet</li>
+			<li>BUG:32433178 - SDW: Aggressive formatting disrupts editing in JSON editor</li>
+			<li>BUG:32284779 - ADP: Error message changed from ORA-00972 to ORA-00942 when trying to use col name longer than max length</li>
+			<li>BUG:32103129 - ADP: Incomplete error message when a field is mapped to more than one column</li>
+			<li>BUG:32316309 - ADP: Validation prevents user from existing settings panel when toggling between create and insert options</li>
+			<li>BUG:32283409 - ADP: Add support for refreshing cloud storage objects</li>
+		</ul>
+		<h3>New Features in 20.4.3</h3>
+		<ul>
+			<li>BUG:32434776 - ORDS: Uptake AnalysisJDBC 20.3.1.6</li>
+			<li>BUG:32203068 - ORDS: Uptake oraclepki 21.0.0.0_322030686</li>
+		</ul>
+
+		<h2>Changes in 20.4.2</h2>
+		The following changes have been made since 20.4.1:
+		<a id="20.4.2-changes"></a>
+		<h3>New Features in 20.4.2</h3>
+		<ul>
+			<li>BUG:32386404 - ADP: Implemented Data Access support for CloudStore</li>
+		</ul>
+
+		<h2>Changes in 20.4.1</h2>
+		The following changes have been made since 20.3.1:
+		<h3>Issues Fixed in 20.4.1</h3>
+		<a id="20.4.1-changes"></a>
+		<ul>
+			<li>BUG:32047436 - ORDS: Installer default tablespace for ORDS_PUBLIC_USER changed from USERS to SYSAUX </li>
+			<li>BUG:31420573 - ORDS: Open proxy connection session for dedicated PL/SQL Gateway database account</li>
+			<li>BUG:30594550 - ORDS: ServiceConfigurationError reported in Oracle WebLogic Server for coherence</li>
+			<li>BUG:29909257 - ORDS: Support parameter names with hyphens </li>
+		</ul>
+		<h3>New Features in 20.4.1</h3>
+		<ul>
+			<li>BUG:32145266 - ORDS: Uptake 21.1 JDBC jars</li>
+			<li>BUG:32298189 - ORDS: Support 21.1 database JSON data type</li>
+			<li>BUG:32299236 - ORDS: Uptake AnalysisJDBC 20.3.1.5</li>
+			<li>BUG:32124540 - ORDS: Uptake Guava 30.0-jre</li>
+			<li>BUG:32124540 - ORDS: Uptake Jackson 2.11.3</li>
+			<li>BUG:32124540 - ORDS: Uptake Jetty 9.4.35</li>
+			<li>BUG:32061299 - ORDS: Upgrade to SODA 1.1.6</li>
+			<li>BUG:32136483 - ORDS: Support Oracle WebLogic Server 14c</li>
+			<li>BUG:31984526 - ORDS: Support JSON error responses</li>
+			<li>BUG:31883509 - ORDS: Support trusted origins for PL/SQL Gateway calls</li>
+			<li>BUG:31423488 - ORDS: Check for duplicate resource definitions in plugins</li>
+			<li>BUG:32100885 - SDW: Extending cookie sessions for active users</li>
+			<li>BUG:32200996 - SDW: Quick navigation from query by example page to SQL Worksheet</li>
+			<li>BUG:32132341 - SDW: Third Party Library updates - uptake Dexie 3.0.2</li>
+			<li>BUG:32132341 - SDW: Third Party Library updates - uptake CodeMirror 5.58.2</li>
+			<li>BUG:32132341 - SDW: Third Party Library updates - uptake AVSC 5.5.2</li>
+			<li>BUG:32132341 - SDW: Third Party Library updates - uptake babel-polyfill 7.12.1</li>
+			<li>BUG:32132341 - SDW: Third Party Library updates - uptake regenerator-runtime 0.13.7</li>
+			<li>BUG:32132341 - SDW: Third Party Library updates - uptake js-xlsx 0.16.8</li>
+			<li>BUG:31879078 - SDW: REST Workshop - integration with cURL</li>
+			<li>BUG:32065000 - SDW: REST Workshop - AutoREST support</li>
+		</ul>
+
+	    <h2>Changes in 20.3.1</h2>
+		The following changes have been made since 20.3.0:
+		<h3>Issues Fixed in 20.3.1</h3>
+
+		<a id="20.3.1-changes"></a>
+		<ul>
+			<li>BUG:32143021 - SDW: Explain plan not working on multiple lines</li>
+		</ul>
+
+		<h2>Changes in 20.3.0</h2>
+		The following changes have been made since 20.2.3:
+		<h3>Issues Fixed in 20.3.0</h3>
+
+		<a id="20.3.0-changes"></a>
+		<ul>
+			<li>BUG:31725735 - SDW: Active SQL is not loading in sessions page</li>
+			<li>BUG:31716468 - SDW: Untranslated strings on Database Actions page</li>
+			<li>BUG:31680705 - DB-API: Pluggable Database Lifecycle Management parameter validation and syntax errors</li>
+			<li>BUG:31630534 - SDW: Unicode characters corrupted in CSV import</li>
+			<li>BUG:31517077 - SDW: Explain plan not shown correctly for 11.2.0.4.0 versions of database</li>
+			<li>BUG:31513457 - SDW: Import failure for binary float and binary double types</li>
+			<li>BUG:27252532 - PL/SQL Gateway: ArithmeticException during upload of files greater than 1 Gb</li>
+			<li>BUG:31872141 - ORDS Logging not leveraging JDK logging </li>
+		</ul>
+		<h3>New Features in 20.3.0</h3>
+		<ul>
+			<li>BUG:31860976 - SDW: JSON Collection</li>
+			<li>BUG:31680101 - DB-API: Open Service Broker implementation for Pluggable Database create and clone operations</li>
+			<li>BUG:31408188 - SDW: REST Workshop</li>
+			<li>BUG:31888902 - Upgrade SODA jars in ORDS to 1.1.5, and add support for debug.printDebugToScreen in SODA </li>
+			<li>ENH:31677304 - Upgrade ORDS to JET version 8.3.2</li>
+		</ul>
+
+		<h2>Changes in 20.2.3</h2>
+		The following changes have been made since 20.2.2:
+		<h3>New Features in 20.2.3</h3>
+
+		<a id="20.2.3-changes"></a>
+		<ul>
+			<li>BUG:31818989 - Batch Load errorsMax setting is now a set through ORDS configuration db.batchload.errorsMax. Defaults to 100. To permit no errors at all, set db.batchload.errorsMax=0. To indicate unlimited errorsMax, set db.batchload.errorsMax=-1.</li>
+			<li>BUG:31811804 - Limit the size of PL/SQL Gateway procedure cache.</li>
+		</ul>
+
+		<h2>Changes in 20.2.2</h2>
+		The following changes have been made since 20.2.0:
+		<h3>Issues Fixed in 20.2.2</h3>
+
+		<a id="20.2.2-changes"></a>
+		<ul>
+			<li>BUG:31774867 - Unable to validate ORDS in Application Container root after upgrade</li>
+			<li>BUG:31783282 - ORDS.EXECUTE_SCHEMA causes an issue for using Application Container common user in Application Container PDB</li>
+		</ul>
+
+		<h2>Changes in 20.2.0</h2>
+		The following changes and enhancements have been made since 20.1.0:
+		<h3>Issues Fixed in 20.2.0</h3>
+
+		<a id="20.2.0-changes"></a>
+		<ul>
+			<li>BUG:31510845 - Uptake JDBC Patch 31223382 - NullPointerException from javanet while closing proxy</li>
+			<li>BUG:31510845 - Uptake JDBC Patch 31035916 - Label callback to set schema not replayed</li>
+			<li>BUG:31510845 - Uptake UCP Patch 31214119 - UCP throws IllegalArgumentException: Non existent or Unknown service name after switchover</li>
+			<li>BUG:31510845 - Uptake UCP Patch 29470059 - OutOfMemoryError occurs when using UCP with DRCP</li>
+			<li>BUG:31513427 - Uptake long javascript library 4.0.1</li>
+			<li>BUG:31345898 - Uptake babel-polyfill 7.8.7</li>
+			<li>BUG:31282991 - Uptake jQuery 3.5.0</li>
+			<li>BUG:31245974 - Uptake Guava 29.0</li>
+			<li>BUG:31245974 - Uptake Jackson Annotations, Core, Databind, Dataformat-XML and JacksonJr 2.10.3</li>
+			<li>BUG:31245974 - Uptake Javassist 3.27</li>
+			<li>BUG:31492479 - Installer: Cannot revoke EXECUTE on SYS.DBMS_LOB from ORDS_PUBLIC_USER error executing upg_ords_object_grants.sql</li>
+			<li>BUG:31222429 - PL/SQL Gateway should trim leading and trailing whitespace in header values</li>
+			<li>BUG:31380524 - PL/SQL Gateway may duplicate some HTTP headers</li>
+			<li>BUG:31139876 - PL/SQL Gateway order of parameters in flexibale parameter passing is incorrect</li>
+			<li>BUG:30954351 - SDW Pivot columns not rendered in correct order on grid</li>
+			<li>BUG:30907038 - POST on autorest table with composite key returns HTTP 404 response</li>
+			<li>BUG:30563861 - Database alert log shows failed queries on apex_release view when APEX not installed</li>
+		</ul>
+		<h3>New Features in 20.2.0</h3>
+		<ul>
+			<li>BUG:31288207 - SDW new landing page</li>
+			<li>BUG:31206975 - REST Enabled SQL returns Database Product and Version information on GET request</li>
+			<li>BUG:31038993 - Install/Upgrade ORDS in Database Application Container</li>
+			<li>BUG:31014036 - SDW Worksheet provides an option to change Oracle Cloud services consumer group</li>
+		</ul>
+
+		<h2>Changes in 20.1.0</h2>
+		The following changes and enhancements have been made since 19.4.5:
+		<h3>Issues Fixed in 20.1.0</h3>
+
+		<a id="20.1.0-changes"></a>
+		<ul>
+			<li>BUG:30780668 - Uptake Jetty 9.4.26</li>
+			<li>BUG:30738801 - Uptake Guava 28.2</li>
+			<li>BUG:30738787 - Uptake Jackson Annotations and Jackson Databind 2.10.2</li>
+			<li>BUG:30956765 - Uptake SODA 1.1.3</li>
+			<li>BUG:30453563 - Install does not abort on Insufficient Privileges error</li>
+			<li>BUG:30563957 - Autorest generated Swagger V2 metadata inconsistencies in property name case</li>
+			<li>BUG:30680803 - SDW Data load should initiate statistics gathering</li>
+			<li>BUG:30783704 - SDW Navigator only shows the first 500 schemas in the database</li>
+			<li>BUG:30896527 - SDW Tour panels overlap on top of dialgs</li>
+		</ul>
+		<h3>New Features in 20.1.0</h3>
+		<ul>
+			<li>BUG:30870100 - SDW: Instance Viewer</li>
+			<li>BUG:30833461 - SDW: DB-API Migration - Activity > Storage</li>
+			<li>BUG:30833461 - SDW: DB-API Migration - Activity > Top SQL</li>
+			<li>BUG:30793935 - SDW: Data load support for XML</li>
+	     	<li>BUG:30793932 - SDW: Data load support for AVRO/JSON</li>
+		    <li>BUG:30771163 - DB-API: Open Service Broker implementation</li>
+		    <li>BUG:30466625 - DB-API: APEX Administration REST services</li>
+		    <li>BUG:30868781 - DB-API: RESTful data services derived from SQL Developer Reports</li>
+		</ul>
+
+	    <h2>Changes in 19.4.6</h2>
+		The following changes and enhancements have been made since 19.4.0:
+		<h3>Issues Fixed in 19.4.6</h3>
+
+		<a id="19.4.6-changes"></a>
+		<ul>
+			<li>BUG 31222530 - Head Request Failing</li>
+			<li>BUG:30739384 - Fix 500 Internal Server Error: No Provider Found Error</li>
+			<li>BUG 30977063 - OutOfMemoryError For APEX static resources</li>
+			<li>BUG 30787873 - ORDS More Resilient to APEX repository issues</li>
+			<li>BUG 31078569 - Better error message required when ORDS does not have access to ORDS_METADATA objects </li>
+			<li>BUG 30739384 - Content Clone uses JAXP Clone with the same source document - Exception in threads</li>
+			<li>BUG 31381258 - PL/SQL Gateway requests can leak Connections</li>
+		</ul>
+		<h3>New Features in 19.4.6</h3>
+		<ul>
+            <li>BUG 30661389 - Report errors in user defined resources as status 555 </li>
+            <li>BUG 30957867 - Implement feature to support alternative runtime user (ORDS_PUBLIC_USER)</li>
+        </ul>
+
+		<h2>Changes in 19.4.0</h2>
+		The following changes and enhancements have been made since 19.3.0:
+		<h3>Issues Fixed in 19.4.0</h3>
+
+		<a id="19.4.0-changes"></a>
+		<ul>
+			<li>BUG:30656342 - Remove Apache FOP Support</li>
+			<li>BUG:30589833 - Uptake Javassist 3.26.0-GA</li>
+			<li>BUG:30589826 - Uptake Jetty 9.4.24</li>
+			<li>BUG:30589815 - Uptake Guava 28.1</li>
+			<li>BUG:30589806 - Uptake Apache XML Graphics Commons 2.4</li>
+			<li>BUG:30589782 - Uptake Jackson Annotations and Jackson Databind 2.10.1</li>
+			<li>BUG:30574360 - StackOverflowError possible when db.invalidpooltimeout property is less than zero</li>
+			<li>BUG:30516590 - ORDS Standalone parameter to have Jetty bind to specific addresses</li>
+			<li>BUG:30514855 - SDW does not have a help page for Create Synonym dialog</li>
+			<li>BUG:30443935 - SDW 'move up' and 'move down' buttons have no effect in create table panel</li>
+			<li>BUG:30430085 - Starting ORDS Standalone prompts for APEX static images location even after saying 'NO' to APEX during install</li>
+			<li>BUG:30376626 - SDW Worksheet does not display execution time</li>
+			<li>BUG:30691478 - UniversalConnectionPoolException is not recovered from</li>
+			<li>BUG:28487031 - ORDS metadata catalog does not generate valid Swagger V2 API document</li>
+			<li>BUG:26326540 - SDW Worksheet does not prompt for a variable value when one is defined in a script</li>
+			<li>BUG:22472978 - Filter query does not support IN for comparison of an attribute with a list of values</li>
+		</ul>
+		<h3>New Features in 19.4.0</h3>
+		<ul>
+            <li>BUG:30265178 - SDW: Data load to a new table</li>
+            <li>BUG:30419710 - SDW: Activity now includes a logins section</li>
+            <li>BUG:30429500 - SDW: Create and REST Enable users</li>
+        </ul>
+
+	  <h2>Changes in 19.3.0</h2>
+		The following changes and enhancements have been made since 19.2.0
+		<h3>Issues Fixed in 19.3.0</h3>
+
+		<a id="19.3.0-changes"></a>
+		<ul>
+			<li>BUG:30494480 - CDB-PDB migration reports ORA-00600 error when upgrading the common ORDS_METADATA schema</li>
+			<li>BUG:30505126 - CDB-PDB migration reports ORA-20148 error when upgrading releases earlier than 3.0.6</li>
+			<li>BUG:30294697 - Make static HTTP resources in ords.war cacheable</li>
+			<li>BUG:30288094 - Uptake JDBC Patch 30269428: Add Oracle binary JSON format support to SODA</li>
+			<li>BUG:30287115 - Uptake UCP Patch 30076604: Labelling Callback being passed invalid connection</li>
+			<li>BUG:30287001 - Uptake JDBC Patch 29010517 - Parameter missing when too many parameters are submitted</li>
+            <li>BUG:30238917 - Improve performance of dispatching requests</li>
+            <li>BUG:30215276 - Include timestamp and ECID in error page</li>
+            <li>BUG:30193380 - Uptake Javassist 3.25.0-GA</li>
+            <li>BUG:30193375 - Uptake Jetty 9.4.20</li>
+            <li>BUG:30193361 - Uptake Guava 28.0</li>
+            <li>BUG:30193344 - Uptake Batik 1.11</li>
+            <li>BUG:30193331 - Uptake PDFBox 2.0.16</li>
+            <li>BUG:30193314 - Uptake Jackson Databind 2.9.9.3</li>
+            <li>BUG:30095934 - Provide <code>/ords/sql-developer</code> landing page</li>
+            <li>BUG:29844552 - Provide option to keep connection proxied when returned to pool</li>
+            <li>BUG:29772200 - Address issue with upgrading ORDS configurations that use TNS connection</li>
+            <li>BUG:29693492 - Provide installer option to use TNS connection</li>
+            <li>BUG:26809645 - Handle overflow of offset and limit query parameter</li>
+            <li>BUG:30072487 - Do not assume non Oracle Database when using db.customURL</li>
+            <li>BUG:30062366 - Pools defined with a Custom URL cause 404 response</li>
+		</ul>
+
+		<h3>New Features in 19.3.0</h3>
+		<ul>
+            <li>BUG:30282368 - Incorporate SQL Developer Web into Oracle REST Data Services</li>
+        </ul>
+
+		<h2>Changes in 19.2.0</h2>
+		The following changes and enhancements have been made since 19.1.0:
+		<h3>Issues Fixed in 19.2.0</h3>
+
+		<a id="19.2.0-changes"></a>
+		<ul>
+            <li>BUG:29884541 - Force newline characters in <code>Error-Reason</code> headers to be replaced by space characters to avoid error on WebLogic</li>
+            <li>BUG:29942773 - Force use of <code>APEX_PUBLIC_USER</code> when dispatching APEX Static Resources service</li>
+            <li>BUG:24941023 - Handle pound character in URL path values</li>
+            <li>BUG:28871609 - Improve Open-API documentation for date time fields</li>
+            <li>BUG:29028746 - Dispatch APEX static resources using built in ORDS service</li>
+            <li>BUG:29422705 - Enumerate exact set of OWA packages that access is restricted to</li>
+            <li>BUG:29536670 - Uptake Oracle JDBC Driver PSE 29010517 to address loss of data in PL/SQL Gateway calls</li>
+            <li>BUG:29550323 - The root cause for this issue was addressed by uptaking 19.3.0 Oracle JDBC Drivers, see BUG:29803162</li>
+            <li>BUG:29642673 - Fix problem with output being truncated for multi-byte characters in PL/SQL Gateway responses</li>
+            <li>BUG:29693752 - Fix problem with detection of SQL Administrator role on 12+ non container database</li>
+            <li>BUG:29809280 - Make installer more resilient to error conditions in customer database</li>
+            <li>BUG:29843652 - Improve performance of built in Java based REST endpoints</li>
+			<li>BUG:29719737 - Fix problem with detection of APEX when APEX is installed in a CDB using Application Containers</li>
+			<li>BUG:29711406 - Fix problem with ICAP integration in some environments</li>
+            <li>BUG:29803162 - Uptake Oracle JDBC Drivers 19.3.0</li>
+			<li>BUG:29617151 - Uptake Eclipse Jetty 9.4.18</li>
+            <li>BUG:29778333 - Uptake PDFBox 2.0.15</li>
+            <li>BUG:29872040 - Uptake Jackson 2.9.9</li>
+            <li>BUG:29615441 - Uptake Guava 27.1</li>
+            <li>BUG:29191117 - Uptake Javassist 3.24.1-GA</li>
+		</ul>
+
+		<h3>New Features in 19.2.0</h3>
+		<ul>
+            <li>BUG:29778399 - Provide script to provision a database user to be able to install ORDS database schema</li>
+            <li>BUG:29629522 - Propagate authenticated user to database as <code>SYS_CONTEXT('USER_ENV','CLIENT_IDENTIFIER')</code></li>
+        </ul>
+
+		<h2>Changes in 19.1.0</h2>
+		The following changes and enhancements have been made since 18.4.0:
+		<h3>Issues Fixed in 19.1.0</h3>
+
+		<a id="19.1.0-changes"></a>
+		<ul>
+			<li>BUG:29544918 - Fix problem with Standalone Mode producing WARN level messages during startup</li>
+			<li>BUG:29532796 - Fix problem with WebLogic raising 'Cannot contain CRLF Charcters' (sic) error</li>
+			<li>BUG:29524572 - Remove Apache Avalon third party dependency</li>
+			<li>BUG:29193867 - Fix problem with invocation of ORDS_ADMIN.DEFINE_SERVICE and ORDS_ADMIN.DEFINE_HANDLER APIs</li>
+			<li>BUG:29290410 - Add DOC_SIZE, DAD_CHARSET and CONTENT_TYPE to file upload in document table</li>
+			<li>BUG:29303722 - Improve how string arrays are transferred from ORDS to the database on 12C and later</li>
+            <li>BUG:29210421 - ORDS corrupting timestamps of ords.war contents when running configdir command</li>
+			<li>BUG:29197220 - Dispatch PL/SQL Gateway calls via ORDS_PUBLIC_USER to minimize number of pools required</li>
+			<li>BUG:29191117 - Uptake Javassist 3.24.1-GA</li>
+			<li>BUG:29191097 - Uptake Eclipse Jetty 9.4.14</li>
+			<li>BUG:29191084 - Uptake Google Guava 27.0.1</li>
+			<li>BUG:29190987 - Uptake Jackson 2.9.8</li>
+			<li>BUG:29190934 - Uptake Apache Commons File Upload 1.4</li>
+			<li>BUG:29190890 - Uptake Apache PDFBox 2.0.13</li>
+			<li>BUG:29128000 - Connect to database using Wallet Zip archive as found Oracle Database Cloud ATP/ADW environments</li>
+			<li>BUG:28570782 - Improve integration with McAfee ICAP Server</li>
+            <li>BUG:27639517 - Provide mechanism to enable Plugin servlets function as an administrative database user</li>
+		</ul>
+		<h3>New Features in 19.1.0</h3>
+		<ul>
+			<li>ENH:29303772 - Enable ORDS to install in a PDB without requiring SYS user or SYSDBA role</li>
+		</ul>
+		<h2>Changes in 18.4.0</h2>
+		The following changes and enhancements have been made since 18.3.0:
+		<h3>Issues Fixed in 18.4.0</h3>
+
+		<a id="18.4.0-changes"></a>
+		<ul>
+			<li>BUG:29053557 - Determine administrative database users based on granted database role</li>
+			<li>BUG:29049176 - Show 403 Forbidden status when REST Service fails due to database user lacking privilege to access objects referenced in the SQL statement</li>
+			<li>BUG:28520359 - Show Oracle Logo in UI</li>
+		    <li>BUG:29011184 - Suppress unsupported and undocumented <code>X-DB-Content-Length</code> response header produced by OWA</li>
+			<li>BUG:28877175 - Fix resolution of <code>url-mapping.xml</code> based mapping that uses <code>--workspace-id</code></li>
+            <li>BUG:28997641 - Gracefully cope with database password rotation</li>
+			<li>BUG:28964132 - ORDS installer won't accept passwords more than 28 bytes long</li>
+			<li>BUG:28808094 - Uptake Apache Commons Logging 1.2</li>
+			<li>BUG:28787846 - Uptake Apache PDFBox 2.0.12</li>
+			<li>BUG:28719460 - Uptake Javassist 3.23.1-GA</li>
+			<li>BUG:28719440 - Uptake Jetty 9.4.12</li>
+			<li>BUG:28719424 - Uptake Jackson 2.9.7</li>
+			<li>BUG:28561298 - Address problem with upgrading from ORDS 17.4.1</li>
+			<li>BUG:28518849 - Fix problem with OAuth token lifetimes not being calculated correctly</li>
+            <li>BUG:28466581 - Fix 500 Error status on open-api-catalog resources</li>
+            <li>BUG:27992525 - Fix access to metadata-catalog when no authorization required</li>
+            <li>BUG:27933884 - Fix parsing of Resource Handler content to recognize parameters more precisely</li>
+            <li>BUG:27808357 - Enhance performance of AutoREST tables/views</li>
+		</ul>
+		<h3>New Features in 18.4.0</h3>
+		<ul>
+			<li>ENH:23666046 - Make <code>security.requestValidationFunction</code> setting configurable per database pool</li>
+			<li>ENH:28028432 - Echo p_comments value into generated Swagger documentation</li>
+		</ul>
+
+		<h2>Earlier versions</h2>
+		For information on Issues Fixed and New Features introduced for earlier versions please refer to the release notes for those versions.
+
+		<a id="known-issues"></a>
+		<h2>Known Issues</h2>
+		<h3>Oracle Database may report 'ORA-01031: insufficient privileges' for queries that involve CURSOR expressions</h3>
+		  <p>
+				In a number of cases, ORDS  executes queries which include a CURSOR expression. An issue has been found executing these queries for
+				some schemas in Oracle 18c and Oracle 19c databases. Depending on the roles and privileges involved, the issue does not occur for all
+				schemas, which can give the impression that the issue is intermittent. Refer to RDBMS bug 29049673 for more information. The issue
+				is manifest as follows in the exception returned:
+				<pre>ORA-00604: error occurred at recursive SQL level 1
+ORA-01031: insufficient privileges</pre>
+		  </p>
+			<p>
+				This is a problem with view-merging of nested cursors introduced in Oracle 18.1 database. Please use the following as a workaround:
+        <pre>alter system set "_fix_control"='20648883:OFF';</pre>
+			</p>
+		<h3>Oracle Database DATE and TIMESTAMP values</h3>
+		<p>ORDS interprets Oracle Database DATE and TIMESTAMP values (which do not possess a time zone) into the time zone of ORDS.
+		   These values are then represented in the RFC3339 UTC format.
+		  </p>
+		  <p> In a future release Oracle Database DATE and TIMESTAMP values will not by default be interpreted into any time zone.
+		   These values will be represented in the ISO 8601 "yyyy-mm-ddThh:mm:ss[.sss]" format.
+		   Oracle Database TIMESTAMP WITH TIME ZONE and TIMESTAMP WITH LOCAL TIME ZONE values will remain represented in the RFC3339 UTC format.
+		</p>
+		<h3>SQL Developer Web</h3>
+		<ul>
+			<li>DATE, TIMESTAMP, TIMESTAMP WITH TIMEZONE values downloaded from the Worksheet Query Result in the JSON format are not presented in the Internet Datetime format.
+			</li>
+			</ul>
+		<h3>JDBC Array values</h3>
+		<p>
+			ORDS passes array values to the Oracle Database in a number of cases, for example arrays are used to pass the request headers and form fields during PL/SQL Gateway calls.
+			Oracle JDBC Driver 18.3 and later supports an improved mechanism for passing array values, however this feature is only supported on Oracle Database 12c and later. Thus
+			ORDS uses existing deprecated and less efficient APIs for passing array values when connecting to 11G databases, and the improved mechanism when connected to 12c and later. Customers
+			experiencing problems with passing large array sets (for example OutOfMemory exceptions) are encouraged to upgrade from 11G to a newer database version to mitigate
+			these issues.
+		</p>
+		<h3>Autogenerated REST Endpoints</h3>
+		<ul>
+			<li>AutoRest resources support the OAuth 2.0 Client Credentials flow only.</li>
+		</ul>
+		<h3>RESTful Services</h3>
+		<ul>
+			<li>Application Express workspaces do not support first party authentication, and therefore do not support the
+				<code>/sign-in/</code> interactive sign in form. Accessing
+				<code>/sign-in/</code> in APEX workspaces will produce a 404 status.
+			</li>
+		</ul>
+		<h3>Support For mod_plsql logmeoff </h3>
+		<ul>
+			<li>The mod_plsql logmeoff mechanism is not supported reliably by modern browsers and it is not provided by ORDS.
+			    The only way to end a HTTP Basic Authentication session is to close the Browser. </li>
+		</ul>
+	</div>
+</body>
+
+</html>

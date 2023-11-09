@@ -1,0 +1,67 @@
+.nh
+.TH "ORDS" "1" "FEB 2022" "" "Oracle REST Data Services User Manual"
+
+.SH NAME
+.PP
+ords - Oracle REST Data Services command line interface
+
+
+.SH SYNOPSIS
+.PP
+\fBords\fP [OPTIONS] [COMMAND] 
+
+.PP
+\fBords\fP [-h, --help|--version]
+
+
+.SH DESCRIPTION
+.PP
+\fBOracle REST Data Services (ORDS)\fP bridges HTTPS and your Oracle Database. A mid-tier Java application, ORDS provides a Database Management REST API, SQL Developer Web, a PL/SQL Gateway, SODA for REST, and the ability to publish RESTful Web Services for interacting with the data and stored procedures in your Oracle Database.
+
+
+.SH OPTIONS
+.PP
+\fB--config <uri>\fP
+  Path to Oracle REST Data Services configuration folder.
+.PP
+\fB--debug\fP
+  Equivalent to --verbose.
+.PP
+\fB-h,--help\fP
+  Show usage information for the command.
+.PP
+\fB-v,--verbose\fP
+  Configure Oracle REST Data Services to run in verbose mode.
+.PP
+\fB--version\fP
+  Show version information.
+
+.SH COMMANDS
+.PP
+\fBconfig\fP
+  Configure application and database connection pool settings.
+.PP
+\fBinstall\fP
+  Configure database connection and install/upgrade Oracle REST Data Service schema, proxy user and related database objects.
+.PP
+\fBmigrate\fP
+  Migrates Oracle REST Data Services configuration files and parameter file from release 21.4.x and earlier releases.
+.PP
+\fBserve\fP
+  Launch Oracle REST Data Services in standalone mode
+.PP
+\fBuninstall\fP
+  Uninstall Oracle REST Data Services schema, proxy user and related database objects.
+
+Run ords <COMMAND> --help for more information on a command.
+
+.SH EXAMPLES
+.PP
+ords config --help
+  Show help for config command.
+
+.SH SEE ALSO
+.PP
+.B ords.conf\fR(5), \fBords.service\fR(8).
+
+
