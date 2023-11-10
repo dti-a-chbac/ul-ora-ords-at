@@ -30,10 +30,32 @@ registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords   latest        4
 ```
 #### Se logger sur le registre d'Openshift et transférer l'image
 ```bash
-docker login -p $(oc whoami -t) -u $(oc whoami) registre.apps.ul-pca-pr-ul01.ulaval.ca:443
-docker push registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords
+$ docker login -p $(oc whoami -t) -u $(oc whoami) registre.apps.ul-pca-pr-ul01.ulaval.ca:443
+$ docker push registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords
+Using default tag: latest
+The push refers to repository [registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords]
+cd224ea90c68: Pushed
+6535d1b7210c: Pushed
+6607c57525cf: Pushed
+0b1125224454: Pushed
+5a7e7a880634: Pushed
+3dccaa93bb0e: Pushed
+5c384ea5f752: Pushed
+293d5db30c9f: Pushed
+03127cdb479b: Pushed
+9c742cd6c7a5: Pushed
+latest: digest: sha256:28d3f9072f6cc37f938c50b723bfb9c2cfdaaacdbb9c7678b24b6f9cb969ef45 size: 2420
 ```
-### Création d'une application à partir d'une image 
+
+#### Liste des images dans le projet UL-ORA-ORDS-AT
+```bash
+$ oc get imagestream
+
+NAME             IMAGE REPOSITORY                                                       TAGS     UPDATED
+ords             registre.apps.ul-pca-pr-ul01.ulaval.ca/ul-ora-ords-at/ords             latest   About a minute ago
+ul-ora-ords-at   registre.apps.ul-pca-pr-ul01.ulaval.ca/ul-ora-ords-at/ul-ora-ords-at   latest   15 hours ago
+```
+#### Création d'une application à partir d'une image 
 ```
 oc new-app ul-ora-ords-at/ords --name=ords
 ```
