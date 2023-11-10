@@ -7,10 +7,17 @@
 ## Transfert d'une applications sous Docker vers Redhat Openshift
 ### Transfert d'un image docker vers le registre d'openshift
 ```bash
+# Accès au systèmes Openshift
 oc login api.ul-pca-pr-ul01.ulaval.ca:6443 -u dti-a-idul
 oc project ul-ora-ords-at
 
+# Voir l'image
+docker image ls ords
+
+# Préparé l'image pour le registre d'Openshift
 docker tag $(docker image ls ords -q) registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords
+
+# Se logger sur le registre d'Openshift et transférer l'image
 docker login -p $(oc whoami -t) -u $(oc whoami) registre.apps.ul-pca-pr-ul01.ulaval.ca:443
 docker push registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords
 
