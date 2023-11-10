@@ -108,6 +108,7 @@ $ oc debug ords-749bf7c94-n7jdw
 * For more information about devfiles, see [Devfile.io](https://devfile.io/).
 * Info : [Create devfiles](https://devfile.io/docs/2.2.2/create-devfiles)
 * For more information about Dockerfiles, see [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+* [Articles sur Openshift](https://www.freekb.net/Articles?tag=OpenShift)
   
 ### Notes
 Before you begin creating an application with this `devfile` code sample, it's helpful to understand the relationship between the `devfile` and `Dockerfile` and how they contribute to your build. You can find these files at the following URLs:
