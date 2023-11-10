@@ -96,6 +96,10 @@ Errors:
 1 error, 2 infos identified, use 'oc status --suggest' to see details.
 ```
 
+```bash
+$ oc logs deployment.apps/ords
+```
+
 ## Additional resources
 * For more information about devfiles, see [Devfile.io](https://devfile.io/).
 * Info : [Create devfiles](https://devfile.io/docs/2.2.2/create-devfiles)
