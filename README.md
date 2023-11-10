@@ -8,17 +8,25 @@
 ### Transfert d'un image docker vers le registre d'openshift
 #### Accès au systèmes Openshift
 ```bash
-oc login api.ul-pca-pr-ul01.ulaval.ca:6443 -u dti-a-idul
-oc project ul-ora-ords-at
+$ oc login api.ul-pca-pr-ul01.ulaval.ca:6443 -u dti-a-idul
+$ oc project ul-ora-ords-at
 ```
 #### Voir l'image
 ```bash
-docker image ls ords
+$ docker image ls ords
+
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+ords         latest    4954003ff068   17 hours ago   480MB
 ```
 
 #### Préparé l'image pour le registre d'Openshift
 ```bash
-docker tag $(docker image ls ords -q) registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords
+$ docker tag $(docker image ls ords -q) registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords
+$ docker image ls | grep ords
+
+ords                                                             latest        4954003ff068   17 hours ago    480MB
+registre.apps.ul-pca-pr-ul01.ulaval.ca:443/ul-ora-ords-at/ords   latest        4954003ff068   17 hours ago    480MB
+
 ```
 #### Se logger sur le registre d'Openshift et transférer l'image
 ```bash
