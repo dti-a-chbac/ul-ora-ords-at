@@ -19,6 +19,7 @@ oc new-app ul-ora-ords-at/ords --name=ords
 
 ## Additional resources
 * For more information about devfiles, see [Devfile.io](https://devfile.io/).
+* Info : [Create devfiles](https://devfile.io/docs/2.2.2/create-devfiles)
 * For more information about Dockerfiles, see [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
   
 ### Notes
