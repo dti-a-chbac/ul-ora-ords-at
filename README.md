@@ -56,8 +56,44 @@ ords             registre.apps.ul-pca-pr-ul01.ulaval.ca/ul-ora-ords-at/ords     
 ul-ora-ords-at   registre.apps.ul-pca-pr-ul01.ulaval.ca/ul-ora-ords-at/ul-ora-ords-at   latest   15 hours ago
 ```
 #### Création d'une application à partir d'une image 
+```bash
+$ oc new-app ul-ora-ords-at/ords --name=ords
+--> Found image 4954003 (17 hours old) in image stream "ul-ora-ords-at/ords" under tag "latest" for "ul-ora-ords-at/ords"
+--> Creating resources ...
+    deployment.apps "ords" created
+    service "ords" created
+--> Success
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose service/ords'
+    Run 'oc status' to view your app.
 ```
-oc new-app ul-ora-ords-at/ords --name=ords
+##### Expose le service sur une route 
+```bash
+$ oc expose service/ords
+route.route.openshift.io/ords exposed
+```
+
+```bash
+$ oc status
+In project ul-ora-ords-at on server https://api.ul-pca-pr-ul01.ulaval.ca:6443
+
+http://ords-ul-ora-ords-at.apps.ul-pca-pr-ul01.ulaval.ca to pod port 8080-tcp (svc/ords)
+  deployment/ords deploys istag/ords:latest
+    deployment #2 running for 2 minutes - 0/1 pods (warning: 4 restarts)
+    deployment #1 deployed 2 minutes ago - 0/1 pods growing to 1
+
+https://ul-ora-ords-at-ul-ora-ords-at.apps.ul-pca-pr-ul01.ulaval.ca (redirects) to pod port 8080-tcp (svc/ul-ora-ords-at)
+  deployment/ul-ora-ords-at deploys istag/ul-ora-ords-at:latest <-
+    bc/ul-ora-ords-at source builds https://github.com/dti-a-chbac/ul-ora-ords-at.git#main on openshift/java:openjdk-17-ubi8
+    deployment #4 running for 15 hours - 0/1 pods growing to 1
+    deployment #3 deployed 15 hours ago - 0/1 pods growing to 1
+    deployment #2 deployed 15 hours ago
+    deployment #1 deployed 15 hours ago
+
+Errors:
+  * pod/ords-749bf7c94-7t4jh is crash-looping
+
+1 error, 2 infos identified, use 'oc status --suggest' to see details.
 ```
 
 ## Additional resources
