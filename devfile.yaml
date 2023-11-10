@@ -11,6 +11,7 @@ components:
   - name: image-build
     image:
       imageName: ords:latest
+      memoryLimit: 1280Mi
       dockerfile:
         uri: docker/Dockerfile
         buildContext: .
